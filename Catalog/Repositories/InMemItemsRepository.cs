@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Catalog.Entities;
+
 namespace Catalog.Repositories
 {
     public class InMemItemsRepository
@@ -10,13 +11,15 @@ namespace Catalog.Repositories
             new Item { Id=Guid.NewGuid(),Name = "Bronze Shield", Price=22, CreatedDate =DateTimeOffset.UtcNow }
 
         };
-
-        public IEnumerable<Item>GetItems(){
+        //GET/items
+        [HttpGet]
+        public IEnumerable<Item> GetItems()
+        {
             return items;
         }
-        public Item GetItem(Guid id){
-            return items.Where(item => item.Id ==id).SingleOrDefault();
-        }
+        // public Task<Item> GetItem(Guid id){
+        //     var item = items.Where(item => item.Id ==id).SingleOrDefault();
+        // }
 
     }
 }

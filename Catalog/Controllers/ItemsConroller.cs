@@ -16,12 +16,20 @@ namespace Catalog.Conrollers
         {
             repository = new InMemItemsRepository();
         }
-        //GET
+
+
+        //GET/items
         [HttpGet]
         public IEnumerable<Item> GetItems()
         {
         var items  = repository.GetItems();
         return items;
+        }
+        //GET/items/id
+        [HttpDelete("{id}")]
+        public Item GetItem(Guid id){
+            var item = repository.GetItem(id);
+            return item;
         }
     }
 }

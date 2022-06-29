@@ -17,9 +17,9 @@ namespace Catalog.Repositories
         {
             return items;
         }
-        // public Task<Item> GetItem(Guid id){
-        //     var item = items.Where(item => item.Id ==id).SingleOrDefault();
-        // }
+        public Task<Item> GetItem(Guid id){
+            var item = items.Where(item => item.Id ==id).SingleOrDefault();
+        }
 
     }
 }
